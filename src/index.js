@@ -10,7 +10,7 @@ function updateRecords(records, id, prop, value) {
     const {[prop]: property, ...restProps} = album;                             // extracting property what I want to edit from album
     const newValue                         = PROPS[prop](value, album[prop]);   // setting new value
     const albumEdited                      = newValue                           // putting new value in album in case of newValue is not undefined
-        ? {...album, [prop]: PROPS[prop](value, album[prop])}
+        ? {...album, [prop]: newValue}
         : {...restProps}
     ;
 
