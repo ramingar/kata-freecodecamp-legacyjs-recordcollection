@@ -1,6 +1,6 @@
 const PROPS = {
     artist    : newValue => newValue,
-    tracks    : (newValue, oldValue = []) => newValue ? [...oldValue, newValue] : undefined,
+    tracks    : (newValue, oldValue = []) => newValue && [...oldValue, newValue],
     albumTitle: newValue => newValue
 }
 
