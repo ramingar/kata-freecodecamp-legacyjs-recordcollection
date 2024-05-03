@@ -6,15 +6,15 @@ const PROPS = {
 
 // Only change code below this line
 function updateRecords(records, id, prop, value) {
-    const {[id]: album}                    = records;
-    const {[prop]: property, ...restProps} = album;
-    const newValue                         = PROPS[prop](value, album[prop]);
-    const albumEdited                      = newValue
+    const {[id]: album}                    = records;                           // extracting album what I want to edit from records
+    const {[prop]: property, ...restProps} = album;                             // extracting property what I want to edit from album
+    const newValue                         = PROPS[prop](value, album[prop]);   // setting new value
+    const albumEdited                      = newValue                           // putting new value in album in case of newValue is not undefined
         ? {...album, [prop]: PROPS[prop](value, album[prop])}
         : {...restProps}
     ;
 
-    return {...records, [id]: albumEdited};
+    return {...records, [id]: albumEdited};                                     // putting albumEdited in records
 }
 
 export {updateRecords}
